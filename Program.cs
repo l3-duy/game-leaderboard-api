@@ -43,7 +43,10 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
-app.UseMiddleware<ApiKeyMiddleware>();
+if (!app.Environment.IsDevelopment())
+{
+    app.UseMiddleware<ApiKeyMiddleware>();
+}
 
 //if this line is not used, system will return "404 NOT FOUND" when trying to access api/leaderboard
 app.MapControllers();
