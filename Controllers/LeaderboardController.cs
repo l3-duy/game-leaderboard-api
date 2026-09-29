@@ -28,6 +28,7 @@ public class LeaderboardController : ControllerBase
             PlayerName = DTOscore.PlayerName,
             WaveSurvived = DTOscore.WaveSurvived,
             Score = DTOscore.Score
+            // abc
         };
         await _leaderboardService.AddNewScoreAsync(newScore);
         var response = new {Message = "Added new player score"};
